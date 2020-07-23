@@ -1,6 +1,6 @@
 # NB-IoT Hardware Board and Software
 
-This is the git repository for the book titled "LTE Cellular Narrowband Internet of Things (NB-IoT): Practical Projects for the Cloud and Data Visualization" by CRC press. This git repository contains Arduino, Google maps, and data visulization projects explained in the book.
+This is the git repository for the book titled "LTE Cellular Narrowband Internet of Things (NB-IoT): Practical Projects for the Cloud and Data Visualization" by CRC press. This git repository contains Arduino, Google maps, and data visualization projects that are explained in the book.
 
 The NB board supports Windows 10, Linux, and Android.
 
