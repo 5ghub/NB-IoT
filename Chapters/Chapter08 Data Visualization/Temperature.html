@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>     
+    <body onload="readDB()"> 
+
+    <head>
+        <title>Temperature Sensor</title>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+        <style type="text/css">
+            .wrapper {  max-width: 800px;  margin: 50px auto; }
+        </style>
+    </head>
+
+    <div class="wrapper">
+        <canvas id="myChart" width="1600" height="900"></canvas>
+    </div>
+
+    <script>
+
+        AWS.config.update({
+                region: "us-west-2",
+                accessKeyId: "<REPLACE_WITH_YOUR_ACCESS_KEY>",
+                secretAccessKey: "<REPLACE_WITH_YOUR_SECRET_ACCESS_KEY>"
+                });        
+
+            var timeStampArray=[];               
+            var tempArray=[];
+
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: timeStampArray,                         
+
+                legendText: 'IMEI',                
+                datasets: [
+                    {                      
+                        label: 'Timestamp',
+                        data: tempArray,
+                        backgroundColor: 
+                        [
+                            "#566573", "#99a3a4", "#dc7633", "#f5b041", "#f7dc6f",
+                            "#82e0aa", "#73c6b6", "#5dade2", "#a569bd", "#ec7063"
+                        ],                        
+                    }              
+                ]
+            },
+            options: 
+            {
+                title: 
+                {
+                    display: true,
+                    text: "Temperature readings from NB-IoT device",
+                    fontColor: "green",
+                    fontSize: "20"
+
+                },                
+                legend: 
+                {
+                    display: true,
+                    position: "bottom",  
+                    labels: 
+                    {
+                        fontColor: 'rgb(255, 0, 0)'
+                    } 
+                },
+                scales: 
+                {
+                    xAxes: 
+                    [
+                        {
+                            scaleLabel: 
+                            {
+                                display: true,
+                                labelString: "Timestamp (ms)",
+                                fontColor: "red"
+                            }
+                        }
+                    ],
+                    yAxes: 
+                    [
+                        {
+                            scaleLabel: 
+                            {
+                                display: true,
+                                labelString: "Temperature (F)",
+                                fontColor: "blue"
+                            },
+                            ticks: 
+                            {
+                                suggestedMin: 20,
+                                suggestedMax: 60
+                            }                            
+                        }
+                    ]
+                }                  
+            }                                   
+            });       
+
+
+        async function readDB() 
+        {         
+            var ddb = new AWS.DynamoDB();
+
+            var params = {
+                TableName: "IoTCentral"
+            };                
+            
+            try 
+            {
+                var result = await ddb.scan(params).promise();
+            }
+            catch (error) 
+            {
+                alert("Error"+error+".")
+            }
+
+            var count = 0;        
+            result.Items.forEach(function(itemdata) 
+                    {
+                        data = JSON.stringify(itemdata);
+                        dataParse = JSON.parse(data)               
+                        IMEI = dataParse["Device ID"].S;
+                        Timestamp = dataParse["Timestamp"].S;               
+                        dataPayloadParse = dataParse["payload"].M
+                        Temperature = dataPayloadParse["Temperature"].S;
+
+                        timeStampArray[count] = Timestamp;
+                        tempArray[count] = Temperature;                        
+                        
+                        count++;
+                    });
+
+            replaceData(myChart, timeStampArray, tempArray, IMEI) ; 
+        }
+   
+        function replaceData(chart, label, data, legend) 
+        {
+            chart.data.labels= label;
+            chart.data.datasets[0].data = data;
+            chart.data.datasets[0].label = legend;
+            chart.update();
+        }        
+    
+    </script>   
+    </body>      
+</html>

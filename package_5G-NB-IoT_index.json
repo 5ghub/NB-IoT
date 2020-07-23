@@ -1,0 +1,58 @@
+{
+  "packages": [
+    {
+      "maintainer": "5G-NB-IoT",
+      "websiteURL": "null",
+      "email": "null",
+      "name": "5G-NB-IoT",
+      "platforms": [
+				{
+					"name": "5G-NB-IoT SAMD Board (32-bits ARM Cortex-M0+)",
+					"architecture": "samd",
+					"version": "1.0.6",
+					"category": "Contributed",
+					"help": {
+						"online": "null"
+					},
+					"url":"https://raw.githubusercontent.com/5ghub/NB-IoT/master/5G-NB-IoT.zip",
+					"archiveFileName": "5G-NB-IoT.zip",
+					"checksum": "SHA-256:909c21945629d530379e732b9b4b16e128d3fc47a612433d0b25235d24057eed",
+					"size": "1106119",
+					"boards": [
+						{
+							"name": "5G-NB-IoT"
+						}
+					],
+					"toolsDependencies": [
+						{
+							"packager": "arduino",
+							"name": "arm-none-eabi-gcc",
+							"version": "4.8.3-2014q1"
+						},
+						{
+							"packager": "arduino",
+							"name": "bossac",
+							"version": "1.7.0"
+						},
+						{
+							"packager": "arduino",
+							"name": "openocd",
+							"version": "0.9.0-arduino5-static"
+						},
+						{
+							"packager": "arduino",
+							"name": "CMSIS",
+							"version": "4.5.0"
+						},
+						{
+							"packager": "arduino",
+							"name": "CMSIS-Atmel",
+							"version": "1.1.0"
+						}
+					]
+				}
+      ],
+      "tools": [] 
+    }
+  ]
+}

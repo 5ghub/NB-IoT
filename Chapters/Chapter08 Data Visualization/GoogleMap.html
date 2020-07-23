@@ -1,0 +1,71 @@
+<h3>NB-IoT Device using Google map</h3>
+
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
+
+<!--The div element for the map -->
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<div style="width:100%;height:50;text-align:center"></div>
+<div style="width:100%;height:200;text-align:center">
+    <button type="button" onclick="readDB()">Read GPS Position!</button>
+</div>
+
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=<replace_with_your_key>=initMap">
+</script>
+
+<script>
+    var map, marker;    
+
+    function initMap() 
+    {
+        var uluru = {lat: -25.344, lng: 131.036};                            
+        map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 6, center: uluru});
+        marker = new google.maps.Marker({position: uluru, draggable: true, map: map});        
+    }
+
+
+
+    AWS.config.update({
+    region: "us-west-2",
+    // accessKeyId default can be used while using the downloadable version of DynamoDB. 
+    // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+    accessKeyId: "<REPLACE_WITH_YOUR_ACCESS_KEY>",
+    // secretAccessKey default can be used while using the downloadable version of DynamoDB. 
+    // For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+    secretAccessKey: "<REPLACE_WITH_YOUR_SECRET_ACCESS_KEY>"
+    });
+
+    function readDB() 
+    {      
+      // Create the DynamoDB service object
+      var ddb = new AWS.DynamoDB();
+      
+      var params = {
+        TableName: 'IoTCentral',
+        Key: {
+          'Device ID': {S: '866425031237797'},
+          'Timestamp': {S: '84710'}
+        }
+      };
+      
+      // Call DynamoDB to read the item from the table
+      ddb.getItem(params, function(err, data) {
+        if (err) {
+            alert("Error"+err+".");
+        } else {
+          data = JSON.stringify(data.Item);
+          dataParse = JSON.parse(data)               
+          IMEI = dataParse["Device ID"];
+          Timestamp = dataParse["Timestamp"];               
+          dataPayloadParse = dataParse["payload"].M
+          Device = dataPayloadParse["Device"];
+          OpCode = dataPayloadParse["OpCode"];
+          Position = dataPayloadParse["Position"];                
+          dataGNSS = Position.S.split(',');
+          marker.setPosition( new google.maps.LatLng(dataGNSS[1], dataGNSS[2]) );
+          map.panTo( new google.maps.LatLng(dataGNSS[1], dataGNSS[2]));
+        }
+      });
+    }
+</script>
