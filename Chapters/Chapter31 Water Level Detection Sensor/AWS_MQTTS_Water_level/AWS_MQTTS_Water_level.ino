@@ -29,7 +29,7 @@
 
 #define A0  0
 
-char APN[] = "hologram";
+char APN[] = "m2mNB16.com.attz";
 char LOGIN[] = "";
 char PASSWORD[] = "";
 
