@@ -5,7 +5,11 @@ This is the git repository for the book titled "LTE Cellular Narrowband Internet
 The NB board supports Windows 10, Linux, and Android.
 
 # NB-IoT Hardware Board (NB Board)
-The NB-IoT hardware board can be obtained from https://www.5ghub.us
+The NB-IoT hardware board can be obtained from the following sellers:
+- https://www.5ghub.us
+- https://www.amazon.com/dp/B07TT99BK1/ref=cm_sw_em_r_mt_dp_BG19MBZ7F4M1HHG9C0Z6
+- [Digikey](https://www.digikey.com/en/products/detail/5g-hub/BG96BRDR22/13530509?utm_adgroup=RF%20Transceiver%20Modules&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_RF%2FIF%20and%20RFID_NEW&utm_term=&utm_content=RF%20Transceiver%20Modules&gclid=CjwKCAjwzruGBhBAEiwAUqMR8DqNQVi08ZYFUL4_JkHvyIj0jPhvHQAOH656_Vd42WqPJuxrNrS6TBoCai0QAvD_BwE)
+
 
 
 # Software and Tools Included in this Repository
