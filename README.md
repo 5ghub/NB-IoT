@@ -52,5 +52,6 @@ https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jss
 
 4- Visual Studio Code: can be downloaded from https://code.visualstudio.com/
 
+5- Install ArduinoJSON library. In Arduino IDE, choose Sketch->Include Library->Manage Library and type ArduinoJSON to install it.
 
 
