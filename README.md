@@ -6,8 +6,6 @@ The NB board supports Windows 10, Linux, and Android.
 
 # NB-IoT Hardware Board (NB Board)
 The NB-IoT hardware board can be obtained from the following sellers:
-- [5G HUB](https://5ghub.us/product/lte-narrowband-internet-of-things-nb-iot-and-global-navigation-satellite-system-gnss-kit-with-ltegps-antenna-arduino-and-freertos-compatible/)
-- [Amazon](https://www.amazon.com/dp/B07TT99BK1/ref=cm_sw_em_r_mt_dp_BG19MBZ7F4M1HHG9C0Z6)
 - [Digikey](https://www.digikey.com/en/products/detail/5g-hub/BG96BRDR22/13530509?utm_adgroup=RF%20Transceiver%20Modules&utm_source=google&utm_medium=cpc&utm_campaign=Shopping_Product_RF%2FIF%20and%20RFID_NEW&utm_term=&utm_content=RF%20Transceiver%20Modules&gclid=CjwKCAjwzruGBhBAEiwAUqMR8DqNQVi08ZYFUL4_JkHvyIj0jPhvHQAOH656_Vd42WqPJuxrNrS6TBoCai0QAvD_BwE)
 
 
