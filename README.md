@@ -1,3 +1,16 @@
+# Book
+All the project in this GitHub repository for the Book:
+*LTE Cellular Narrowband Internet of Things (NB-IoT): Practical Projects for the Cloud and Data Visualization*
+
+on Aamzon:
+https://a.co/d/09xEIgX4
+
+On Routledge:
+https://www.routledge.com/LTE-Cellular-Narrowband-Internet-of-Things-NB-IoT-Practical-Projects-for-the-Cloud-and-Data-Visualization/Fattah/p/book/9780367690144
+
+On Taylor & Francis Group:
+https://www.taylorfrancis.com/books/mono/10.1201/9781003120018/lte-cellular-narrowband-internet-things-nb-iot-hossam-fattah
+
 # NB-IoT Hardware Board and Software
 
 This is the git repository for the book titled "LTE Cellular Narrowband Internet of Things (NB-IoT): Practical Projects for the Cloud and Data Visualization" by CRC press. This git repository contains Arduino, Google maps, and data visualization projects that are explained in the book.
