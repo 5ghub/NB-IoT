@@ -11,7 +11,10 @@ The NB-IoT hardware board can be obtained from the following sellers:
 
 
 # Arduino IDE Compatibiltiy
-This GitHub repository is compatible with Arduino IDE 1.8.13
+This Repository is compatible with:
+
+* Arduino IDE 2.3.10
+* Arduino IDE 1.8.13
 
 # Software and Tools Included in this Repository
 -Chapters: Contains all Arduino sketches for all chapters in the book.
